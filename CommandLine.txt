@@ -1,0 +1,25 @@
+These are the command lines:
+
+When the program starts, it should ask the following question:
+"Are you an admin? (y/n)"
+This sets up the admin privileges (setting up proper login is probably out of scope.)
+
+The command line has the following list of commands:
+
+CONVERT X Y     calculates the conversion rate between two currencies
+TABLE           showcases current table of exchange rates
+TABLE X         showcases current table from date X to current date
+TABLE X Y       showcases current table from date X to date Y
+ADD RATE X      (admin only) add new currency exchange rate X to database
+ADD CURRENCY X  (admin only) add new currency X to database
+HELP            opens up this list
+
+The commands are not case-sensitive.
+For anything that does not align to the command line, the command line outputs:
+
+"command unknown, type "help" for details"
+
+
+NOTE:
+For adding currencies, the currency has to be REAL and also must exist on xe.com
+So the user cannot add fictional currencies like Gil or Poké or whatever.
