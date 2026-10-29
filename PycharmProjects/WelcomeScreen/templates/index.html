@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NT Job Aggregator | Northern Territory Careers</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">🦘</span>
+                <h1 class="text-xl font-bold tracking-tight text-slate-900">NT Job Aggregator</h1>
+            </div>
+            <div class="text-sm text-slate-500 font-medium">
+                Total Jobs: <span id="job-count" class="text-indigo-600 font-bold">{{ total }}</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- Search & Control Bar -->
+        <div class="bg-white rounded-xl shadow-xs border border-slate-200 p-4 mb-8 flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div class="w-full md:w-1/2 relative">
+                <input type="text" id="search-input" placeholder="Search by job title, company name, or location..."
+                    class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                    🔍
+                </div>
+            </div>
+            <div class="text-xs text-slate-400">
+                Data Updated: <span class="font-semibold text-slate-600">{% if jobs and jobs[0] %}{{ jobs[0].get('first_seen', 'N/A').split(' ')[0] }}{% else %}N/A{% endif %}</span>
+            </div>
+        </div>
+
+        <!-- Grouped Company Sections Container -->
+        <div id="company-sections" class="space-y-6">
+            <!-- 动态分组将通过后端或前端渲染，这里使用结构化展示 -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="no-results" class="hidden text-center py-16">
+            <p class="text-lg text-slate-400">No matching jobs found.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-400">
+        <p>© 2026 NT Job Aggregator. Automated Northern Territory Careers Pipeline.</p>
+    </footer>
+
+    <!-- Raw Job Data from Backend -->
+    <script>
+        const rawJobs = {{ jobs | tojson | safe }};
+    </script>
+
+    <!-- Frontend Grouping & Filtering Script -->
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const companySectionsContainer = document.getElementById('company-sections');
+        const noResults = document.getElementById('no-results');
+        const jobCountSpan = document.getElementById('job-count');
+
+        function renderJobs(query = '') {
+            query = query.toLowerCase().trim();
+
+            // 1. Filter jobs
+            const filteredJobs = rawJobs.filter(job => {
+                const title = (job.title || '').toLowerCase();
+                const brand = (job.brand || 'Company').toLowerCase();
+                const location = (job.location || '').toLowerCase();
+                return title.includes(query) || brand.includes(query) || location.includes(query);
+            });
+
+            jobCountSpan.textContent = filteredJobs.length;
+
+            if (filteredJobs.length === 0) {
+                companySectionsContainer.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            // 2. Group jobs by company (brand)
+            const grouped = {};
+            filteredJobs.forEach(job => {
+                const brand = job.brand || 'Company';
+                if (!grouped[brand]) {
+                    grouped[brand] = {
+                        logo: job.logo_file || 'company.png',
+                        jobs: []
+                    };
+                }
+                grouped[brand].jobs.push(job);
+            });
+
+            // 3. Render grouped HTML structure
+            let html = '';
+            for (const [brand, data] of Object.entries(grouped)) {
+                html += `
+                    <div class="company-section bg-white rounded-xl shadow-xs border border-slate-200 p-6 transition-all duration-200 hover:shadow-sm">
+                        <!-- Company Header -->
+                        <div class="flex items-center gap-3 pb-4 mb-4 border-b border-slate-100">
+                            <img src="/static/logos/${data.logo}" alt="${brand}" class="w-7 h-7 object-contain rounded" onerror="this.style.display='none';">
+                            <h2 class="text-lg font-bold text-slate-900">${brand}</h2>
+                            <span class="ml-auto text-xs font-semibold px-2.5 py-1 bg-slate-100 text-slate-600 rounded-full">
+                                ${data.jobs.length} position(s)
+                            </span>
+                        </div>
+                        <!-- Job List under this company -->
+                        <ul class="space-y-3">
+                `;
+
+                data.jobs.forEach((job, index) => {
+                    const jobTypeBadge = job.type
+                        ? `<span class="text-xs px-2 py-0.5 bg-indigo-50 text-indigo-700 rounded font-medium">${job.type}</span>`
+                        : '';
+
+                    html += `
+                        <li class="job-item flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                            <div class="space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs font-bold text-slate-400 w-5">${index + 1}.</span>
+                                    <a href="${job.url || '#'}" target="_blank" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">
+                                        ${job.title || 'Untitled Position'}
+                                    </a>
+                                    ${jobTypeBadge}
+                                </div>
+                                <p class="text-xs text-slate-500 pl-7 flex items-center gap-1">
+                                    📍 ${job.location || 'Northern Territory'}
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between sm:justify-end gap-3 pl-7 sm:pl-0">
+                                <span class="text-xs text-slate-400">Seen: ${(job.first_seen || '').split(' ')[0]}</span>
+                                <a href="${job.url || '#'}" target="_blank" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-lg transition-colors">
+                                    Apply →
+                                </a>
+                            </div>
+                        </li>
+                    `;
+                });
+
+                html += `
+                        </ul>
+                    </div>
+                `;
+            }
+
+            companySectionsContainer.innerHTML = html;
+        }
+
+        // Initial render
+        renderJobs();
+
+        // Real-time search listener
+        searchInput.addEventListener('input', (e) => {
+            renderJobs(e.target.value);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+name: Daily NT Job Scraper
+
+# Trigger conditions:
+on:
+  schedule:
+    - cron: '0 23 * * *'  # Run daily at 23:00 UTC (8:30 AM Darwin, Australia time)
+  workflow_dispatch:      # Allow manual trigger from the GitHub web interface
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      # 3. Install dependencies (Playwright and its browser binaries)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright fastapi uvicorn jinja2 requests
+          playwright install chromium
+
+      # 4. Run scrapers and aggregate data
+      - name: Run scrapers and aggregate JSON
+        run: |
+          python app.py &
+          sleep 5  # Allow time for the service/script to execute
+
+      # 5. Commit and push updated JSON files back to the GitHub repository
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add *.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update NT jobs data [skip ci]" && git push)
