@@ -1,0 +1,60 @@
+{
+    "updated_at": "2026-10-29 15:44:26",
+    "total_unique_jobs": 6,
+    "jobs": [
+        {
+            "title": "Team Member - Alice Springs",
+            "url": "https://olivia.eu1.paradox.ai/co/KFC5/Job?job_id=PDX_KA_4A5ECEC5-CE34-4222-8501-8DD95B137A51_22078653&posting_type=1",
+            "location": "Alice Springs, 90-92 Todd Street, Alice Springs, NT",
+            "brand": "KFC",
+            "type": "",
+            "first_seen": "2026-10-29 14:46:57",
+            "last_seen": "2026-10-29 15:44:26"
+        },
+        {
+            "title": "Team Member - Stuart Park",
+            "url": "https://olivia.eu1.paradox.ai/co/KFC1/Job?job_id=PDX_KF_425E227B-AC7E-4186-997C-BBE93A20497D_22079049&posting_type=1",
+            "location": "Stuart Park, 43 Stuart Highway, Stuart Park, NT",
+            "brand": "KFC",
+            "type": "",
+            "first_seen": "2026-10-29 14:46:57",
+            "last_seen": "2026-10-29 15:44:26"
+        },
+        {
+            "title": "Team Member - Bagot Road",
+            "url": "https://olivia.eu1.paradox.ai/co/KFC1/Job?job_id=PDX_KF_425E227B-AC7E-4186-997C-BBE93A20497D_22078890&posting_type=1",
+            "location": "Bagot Road, Bagot Road, Coconut Grove, Darwin, NT",
+            "brand": "KFC",
+            "type": "",
+            "first_seen": "2026-10-29 14:46:57",
+            "last_seen": "2026-10-29 15:44:26"
+        },
+        {
+            "title": "Team Member - Casuarina FC",
+            "url": "https://olivia.eu1.paradox.ai/co/KFC1/Job?job_id=PDX_KF_425E227B-AC7E-4186-997C-BBE93A20497D_22078905&posting_type=1",
+            "location": "Casuarina FC, Shop GD141, Casuarina Square, Bradshaw Terrace, Casuarina, NT",
+            "brand": "KFC",
+            "type": "",
+            "first_seen": "2026-10-29 14:46:57",
+            "last_seen": "2026-10-29 15:44:26"
+        },
+        {
+            "title": "Team Member - Coolalinga",
+            "url": "https://olivia.eu1.paradox.ai/co/KFC1/Job?job_id=PDX_KF_425E227B-AC7E-4186-997C-BBE93A20497D_22079133&posting_type=1",
+            "location": "Coolalinga, 425 Stuart Highway, Coolalinga, NT",
+            "brand": "KFC",
+            "type": "",
+            "first_seen": "2026-10-29 14:46:57",
+            "last_seen": "2026-10-29 15:44:26"
+        },
+        {
+            "title": "Team Member - Casuarina",
+            "url": "https://olivia.eu1.paradox.ai/co/KFC1/Job?job_id=PDX_KF_425E227B-AC7E-4186-997C-BBE93A20497D_22079076&posting_type=1",
+            "location": "Casuarina, Monterey House, 247 Trower Road, Casuarina, NT",
+            "brand": "KFC",
+            "type": "",
+            "first_seen": "2026-10-29 14:46:57",
+            "last_seen": "2026-10-29 15:44:26"
+        }
+    ]
+}

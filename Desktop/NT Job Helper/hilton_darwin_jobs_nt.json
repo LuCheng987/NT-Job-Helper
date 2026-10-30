@@ -1,0 +1,56 @@
+{
+    "updated_at": "2026-10-29 15:43:45",
+    "total_unique_jobs": 5,
+    "jobs": [
+        {
+            "title": "Handy Person",
+            "job_id": "228408",
+            "location": "Hilton Darwin (On-site)",
+            "brand": "Hilton Darwin",
+            "type": "",
+            "url": "https://efet.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1009/job/228408/?location=NT%252C+Australia&locationId=100027567235969&locationLevel=state&mode=location",
+            "first_seen": "2026-10-29 14:46:15",
+            "last_seen": "2026-10-29 15:43:45"
+        },
+        {
+            "title": "Duty Manager",
+            "job_id": "227077",
+            "location": "DoubleTree by Hilton Alice Springs",
+            "brand": "Hilton Darwin",
+            "type": "",
+            "url": "https://efet.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1009/job/227077/?location=NT%252C+Australia&locationId=100027567235969&locationLevel=state&mode=location",
+            "first_seen": "2026-10-29 14:46:15",
+            "last_seen": "2026-10-29 15:43:45"
+        },
+        {
+            "title": "Engineering Supervisor / Engineering Team Leader",
+            "job_id": "226906",
+            "location": "DoubleTree by Hilton Alice Springs (On-site)",
+            "brand": "Hilton Darwin",
+            "type": "",
+            "url": "https://efet.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1009/job/226906/?location=NT%252C+Australia&locationId=100027567235969&locationLevel=state&mode=location",
+            "first_seen": "2026-10-29 14:46:15",
+            "last_seen": "2026-10-29 15:43:45"
+        },
+        {
+            "title": "Food & Beverage Attendant",
+            "job_id": "224143",
+            "location": "DoubleTree by Hilton Esplanade Darwin (On-site)",
+            "brand": "Hilton Darwin",
+            "type": "",
+            "url": "https://efet.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1009/job/224143/?location=NT%252C+Australia&locationId=100027567235969&locationLevel=state&mode=location",
+            "first_seen": "2026-10-29 14:46:15",
+            "last_seen": "2026-10-29 15:43:45"
+        },
+        {
+            "title": "Purchasing Officer",
+            "job_id": "218470",
+            "location": "DoubleTree by Hilton Alice Springs (On-site)",
+            "brand": "Hilton Darwin",
+            "type": "",
+            "url": "https://efet.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1009/job/218470/?location=NT%252C+Australia&locationId=100027567235969&locationLevel=state&mode=location",
+            "first_seen": "2026-10-29 14:46:15",
+            "last_seen": "2026-10-29 15:43:45"
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "updated_at": "2026-10-29 15:43:23",
+    "total_unique_jobs": 5,
+    "jobs": [
+        {
+            "title": "Assistant Manager - The Bell Bar and Bistro",
+            "job_id": "14110",
+            "reference_id": "2d833d34-2ff1-49b5-b69f-083ab4185d82",
+            "url": "https://endeavourgroupcareers.com.au/job/assistant-manager-the-bell-bar-and-bistro-in-bellamack-nt-0832-jid-14110",
+            "location": "Bellamack, NT, 0832",
+            "brand": "ALH Hotels",
+            "type": "Full-time",
+            "work_style": "Onsite",
+            "first_seen": "2026-10-29 14:45:49",
+            "last_seen": "2026-10-29 15:43:21"
+        },
+        {
+            "title": "Venue Manager - Cavenagh Hotel",
+            "job_id": "13153",
+            "reference_id": "759d143c-ec5e-47b4-ab71-26ba63c881de",
+            "url": "https://endeavourgroupcareers.com.au/job/venue-manager-cavenagh-hotel-in-darwin-city-nt-0800-jid-13153",
+            "location": "Darwin City, NT, 0800",
+            "brand": "ALH Hotels",
+            "type": "Full-time",
+            "work_style": "Onsite",
+            "first_seen": "2026-10-29 14:45:49",
+            "last_seen": "2026-10-29 15:43:21"
+        },
+        {
+            "title": "Assistant Manager - Beachfront Hotel",
+            "job_id": "11909",
+            "reference_id": "4d74ecb9-d2bb-407d-b15a-984db2e56e52",
+            "url": "https://endeavourgroupcareers.com.au/job/assistant-manager-beachfront-hotel-in-rapid-creek-nt-0810-jid-11909",
+            "location": "Rapid Creek, NT, 0810",
+            "brand": "ALH Hotels",
+            "type": "Full-time",
+            "work_style": "Onsite",
+            "first_seen": "2026-10-29 14:45:49",
+            "last_seen": "2026-10-29 15:43:21"
+        },
+        {
+            "title": "Assistant Manager - NORTHERN TERRITORY",
+            "job_id": "11178",
+            "reference_id": "6b62e3e1-0828-41e3-a574-677ef4ea793f",
+            "url": "https://endeavourgroupcareers.com.au/job/assistant-manager-northern-territory-in-darwin-nt-0800-jid-11178",
+            "location": "Darwin, NT, 0800",
+            "brand": "ALH Hotels",
+            "type": "Full-time",
+            "work_style": "Onsite",
+            "first_seen": "2026-10-29 14:45:49",
+            "last_seen": "2026-10-29 15:43:21"
+        },
+        {
+            "title": "Cook or Chef - NORTHERN TERRITORY",
+            "job_id": "11177",
+            "reference_id": "b3d59911-4fb3-4078-a222-2683177e7d1a",
+            "url": "https://endeavourgroupcareers.com.au/job/cook-or-chef-northern-territory-in-darwin-nt-0800-jid-11177",
+            "location": "Darwin, NT, 0800",
+            "brand": "ALH Hotels",
+            "type": "Full-time",
+            "work_style": "Onsite",
+            "first_seen": "2026-10-29 14:45:49",
+            "last_seen": "2026-10-29 15:43:21"
+        }
+    ]
+}
